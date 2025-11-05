@@ -1,16 +1,17 @@
 import solara
 
-# 1. 建立一個「響應式」變數 (元件的私有記憶)
-count = solara.reactive(0)
 
-# 2. 定義一個 Solara 元件 (用 @ 裝飾)
 @solara.component
 def Page():
-    solara.Title("我的 Solara App")
-    solara.Markdown(f"## 按鈕被點擊了 {count.value} 次！")
+    with solara.Column(align="center"):
+        markdown = """
+        ## 3D Mapping with Leafmap and MapLibre
 
-    def increment():
-        count.value += 1 # 改變狀態值
+        This is a Solara template for a 3D mapping application using Leafmap and MapLibre. Click on the menu above to see the different examples.
+        <br>
+        Source code: <https://github.com/opengeos/solara-maplibre>
 
-    # 3. 建立一個按鈕，綁定 on_click 事件
-    solara.Button("點我！", on_click=increment)
+        ![image](https://github.com/user-attachments/assets/efc9e43b-99c0-40b4-af08-4971e8b96919)
+        """
+
+        solara.Markdown(markdown)
