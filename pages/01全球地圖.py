@@ -13,6 +13,7 @@ def create_map():
     )
     return m
 
+
 @solara.component
 def Page():
     m = create_map()
