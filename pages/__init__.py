@@ -1,1 +1,1 @@
-from .Page import Page
+from .page import page
