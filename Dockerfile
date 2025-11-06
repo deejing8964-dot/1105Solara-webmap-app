@@ -11,8 +11,22 @@ COPY requirements.txt .
 # (libgdal-dev 是 geopandas 和 rasterio 必需的)
 RUN apt-get update && apt-get install -y \
     build-essential \
+    gdal-bin \
     libgdal-dev \
+    libproj-dev \
+    proj-bin \
+    pkg-config \
+    gcc \
+    g++ \
+    curl \
     && rm -rf /var/lib/apt/lists/*
+
+# 設定 GDAL include path，讓部分套件編譯時能找到 header
+ENV CPLUS_INCLUDE_PATH=/usr/include/gdal
+ENV C_INCLUDE_PATH=/usr/include/gdal
+
+# 升級 pip / wheel / setuptools 以降低安裝失敗機率
+RUN pip install --no-cache-dir --upgrade pip setuptools wheel
 
 RUN pip install --no-cache-dir -r requirements.txt
 
@@ -20,4 +34,4 @@ RUN pip install --no-cache-dir -r requirements.txt
 COPY . .
 
 # 6. 告訴 HF 如何執行 (使用 7860 port)
-CMD ["solara", "run", "./pages", "--host", "0.0.0.0", "--port", "7860"]
+CMD ["solara", "run", "pages", "--host", "0.0.0.0", "--port", "7860"]
