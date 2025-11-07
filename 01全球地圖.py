@@ -1,20 +1,6 @@
-import solara
-import leafmap.maplibregl as leafmap
+# This file moved into the `pages/` package.
+# Use the package-level `pages.Page` navigator as a safe redirect so
+# accidental imports won't crash.
+from pages import Page
 
-
-def create_map():
-
-    m = leafmap.Map(
-        style="liberty",
-        projection="globe",
-        height="750px",
-        zoom=2.5,
-        sidebar_visible=True,
-    )
-    return m
-
-
-@solara.component
-def Page():
-    m = create_map()
-    return m.to_solara()
+__all__ = ["Page"]

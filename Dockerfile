@@ -14,10 +14,28 @@ RUN apt-get update && apt-get install -y \
     libgdal-dev \
     && rm -rf /var/lib/apt/lists/*
 
+RUN apt-get update && apt-get install -y \
+    build-essential \
+    gdal-bin \
+    libgdal-dev \
+    libproj-dev \
+    proj-bin \
+    pkg-config \
+    curl \
+    ca-certificates \
+    && rm -rf /var/lib/apt/lists/*
+
+# 設定 GDAL include path，協助編譯套件時找到 headers
+ENV CPLUS_INCLUDE_PATH=/usr/include/gdal
+ENV C_INCLUDE_PATH=/usr/include/gdal
+
+# 升級 pip / wheel / setuptools
+RUN pip install --no-cache-dir --upgrade pip setuptools wheel
+
 RUN pip install --no-cache-dir -r requirements.txt
 
 # 5. 複製您所有的 App 程式碼
 COPY . .
 
 # 6. 告訴 HF 如何執行 (使用 7860 port)
-CMD ["solara", "run", "app.py", "--host", "0.0.0.0", "--port", "7860"]
+CMD ["solara", "run", "pages", "--host", "0.0.0.0", "--port", "7860"]
