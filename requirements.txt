@@ -1,8 +1,9 @@
-solara
+anymap
+fiona
 geopandas
-leafmap
-ipyleaflet
-rasterio
-xarray
-localtileserver
+leafmap>=0.49.2
+mapclassify
 maplibre
+rasterio
+rioxarray
+solara
