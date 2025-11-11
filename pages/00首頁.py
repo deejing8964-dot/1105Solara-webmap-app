@@ -1,15 +1,11 @@
 import solara
 
-
+count = solara.reactive(0)
 @solara.component
 def Page():
     with solara.Column(align="center"):
-        markdown = """
-        ## 3D Mapping with Leafmap and MapLibre
-        This is a Solara template for a 3D mapping application using Leafmap and MapLibre. Click on the menu above to see the different examples.
-        <br>
-        Source code: <https://github.com/opengeos/solara-maplibre>
-        ![image](https://github.com/user-attachments/assets/efc9e43b-99c0-40b4-af08-4971e8b96919)
-        """
-
-        solara.Markdown(markdown)
+        solara.Title("My Solara App")
+        solara.Markdown(f"## 按鈕被點擊了 {count.value} 次！")
+        def increment():
+            count.value += 1 
+        solara.Button("點我！", on_click=increment)
