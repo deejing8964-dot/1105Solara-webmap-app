@@ -11,7 +11,7 @@ def Page():
 
     # 3. 這個函式會改變 name.value
     def on_click():
-        name.value = "Chingmu"
+        name.value = "Deejing"
 
     # 4. 按鈕點擊時，name.value 改變，
     #    上面的 Markdown 元件會「自動」更新
