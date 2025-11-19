@@ -9,7 +9,7 @@ def Page():
     # 2. 將狀態「綁定」到 Input 元件
     #    (value=username，而不是 value=username.value)
     solara.InputText("請輸入您的名字:", value=username)
-    solara.Slider("請選擇您的年齡:", min=1, max=100, value=age)
+    solara.SliderFloat("請選擇您的年齡:", min=1, max=100, value=age)
 
     solara.Markdown("---")
 
