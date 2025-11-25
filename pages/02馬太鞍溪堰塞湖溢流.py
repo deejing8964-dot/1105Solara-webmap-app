@@ -1,12 +1,6 @@
 import solara
 import leafmap.maplibregl as leafmap
 
-
-def create_map():
-
-    m = leafmap.Map(import solara
-import leafmap.leafmap as leafmap
-
 def create_split_map():
     # 直接使用 split_map，傳入底圖名稱字串
     split_control = leafmap.split_map(
