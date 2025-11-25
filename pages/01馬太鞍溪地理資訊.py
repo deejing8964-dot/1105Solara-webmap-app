@@ -34,7 +34,7 @@ def Page():
 
     with solara.Column():
         
-        solara.Markdown("## 地理位置")
+        solara.Markdown("## 地理資訊")
         solara.Markdown('''
         溪長約：38.58 公里
         流域面積：161.80平方公里
