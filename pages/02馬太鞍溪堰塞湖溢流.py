@@ -1,5 +1,5 @@
 import solara
-import leafmap.maplibregl as leafmap
+import leafmap.leafmap as leafmap
 
 def create_split_map():
     # 直接使用 split_map，傳入底圖名稱字串
@@ -32,11 +32,11 @@ def Page():
         ---
         #### 溢流事件經過：
 
-        2025年7月21日，馬太鞍溪上游於發生大規模山崩，引發了規模4.9的非構造地震[2]，崩塌量約2億立方公尺，形成壩高約200公尺之堰塞湖。[3]
+        2025年7月21日，馬太鞍溪上游於發生大規模山崩，引發了規模4.9的非構造地震，崩塌量約2億立方公尺，形成壩高約200公尺之堰塞湖。
 
         2025年8月10日，因應楊柳颱風靠近臺灣，中央政府開始擬定疏散避難計畫。
 
-        2025年9月23日，颱風樺加沙的強大雨勢導致該堰塞湖溢流[4]。
+        2025年9月23日，颱風樺加沙的強大雨勢導致該堰塞湖溢流。
         ''')
         solara.Markdown("## 2D 捲簾比對 (Split Map)")
     
@@ -44,20 +44,3 @@ def Page():
     
     with solara.Column(style={"width": "100%", "height": "700px"}):
         solara.display(split_widget)
-        center=[-74.0095, 40.7046],
-        zoom=16,
-        pitch=60,
-        bearing=-17,
-        style="positron",
-        height="750px",
-        sidebar_visible=True,
-    )
-    m.add_basemap("Satellite", visible=False)
-    m.add_overture_3d_buildings(template="simple")
-    return m
-
-
-@solara.component
-def Page():
-    m = create_map()
-    return m.to_solara()
