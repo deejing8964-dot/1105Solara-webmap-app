@@ -3,10 +3,9 @@ import plotly.express as px
 import leafmap.maplibregl as leafmap
 import os
 
-MAPTILER_KEY = os.environ.get("MAPTILER_API_KEY", "") 
+MAPTILER_KEY = os.environ.get("maptilerAPI", "") 
 
 def create_3d_map():
-    # 檢查 API Key 是否存在
     if not MAPTILER_KEY:
         m = leafmap.Map(
             center=[121.395, 23.515], 
