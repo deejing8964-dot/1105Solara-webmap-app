@@ -1,5 +1,5 @@
 ---
-title: My Solara GIS App
+title: DuckDB App
 emoji: 🌍
 colorFrom: blue
 colorTo: green
